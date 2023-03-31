@@ -30,7 +30,9 @@ const Movie = ({ movie }) => {
           )}
         </div>
       </div>
-      <p className="text-white font-bold mt-2 ml-2">{movie?.title}</p>
+      <p className="text-white font-bold mt-2 ml-2 truncate w-[280px]">
+        {movie?.title}
+      </p>
     </div>
   );
 };
