@@ -1,36 +1,33 @@
 import Navbar from "./components/Navbar";
 import Home from "../src/pages/Home";
 import { Routes, Route } from "react-router-dom";
-import html2canvas from "html2canvas";
-import FileSaver from "file-saver";
+import { AuthContextProvider } from "./context/AuthContext";
+import Login from "../src/pages/Login";
+import Signup from "../src/pages/Signup";
+import Account from "../src/pages/Account";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  // function handleDownload() {
-  //   const element = document.querySelector(".html-to-pdf");
-  //   // html2pdf(element, {
-  //   //   margin: 1,
-  //   //   filename: "download.pdf",
-  //   //   image: { type: "jpeg", quality: 0.98 },
-  //   //   html2canvas: { dpi: 192, letterRendering: true },
-  //   //   jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-  //   // });
-  //   // .then(function (pdf) {
-  //   //   FileSaver.saveAs(pdf.output("blob"), "download.pdf");
-  //   // });
-  //   html2canvas(element).then((canvas) => {
-  //     canvas.toBlob((blob) => {
-  //       saveAs(blob, "screenshot.png");
-  //     });
-  //   });
-  // }
-
   return (
-    <div className="html-to-pdf">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <>
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/account"
+            element={
+              // <ProtectedRoute>
+              // {" "}
+              <Account />
+              // </ProtectedRoute>
+            }
+          />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </AuthContextProvider>
+    </>
   );
 }
 

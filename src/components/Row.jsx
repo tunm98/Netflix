@@ -13,11 +13,9 @@ const Row = ({ title, fetchURL }) => {
   }, [fetchURL]);
 
   const slideLeft = () => {
-    // const slider = document.getElementById("slider");
     sliderRef.current.scrollLeft -= 500;
   };
   const slideRight = () => {
-    // const slider = document.getElementById("slider");
     sliderRef.current.scrollLeft += 500;
   };
 
